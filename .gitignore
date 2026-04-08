@@ -1,0 +1,34 @@
+# Sensitive / local files
+.env
+.env.*
+*.txt
+.claude/
+
+# Playwright test artifacts
+.playwright-mcp/
+
+# Screenshots / generated images (but allow public assets)
+*.png
+*.jpeg
+*.jpg
+!frontend/public/*.png
+!frontend/public/*.jpg
+!frontend/public/*.svg
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+backend/uploads/

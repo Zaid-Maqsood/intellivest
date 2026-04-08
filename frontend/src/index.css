@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #EBF8FC;
+    color: #1C3A5C;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #D8EEF5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #9BCAD8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5BAFC8;
+  }
+}
+
+@layer components {
+  /* Main card — white with light sky border */
+  .glass-card {
+    @apply bg-white border border-surface-lighter rounded-xl shadow-card;
+  }
+
+  /* Positive / negative stat colors */
+  .stat-positive { @apply text-emerald-600; }
+  .stat-negative { @apply text-rose-500; }
+
+  /* Priority / severity badge variants */
+  .badge-critical {
+    @apply bg-rose-50 text-rose-600 border border-rose-200;
+  }
+  .badge-high {
+    @apply bg-amber-50 text-amber-600 border border-amber-200;
+  }
+  .badge-medium {
+    @apply bg-sky-50 text-sky-600 border border-sky-200;
+  }
+  .badge-low {
+    @apply bg-slate-100 text-slate-500 border border-slate-200;
+  }
+
+  /* Sidebar nav link active glow */
+  .nav-active {
+    background: rgba(58, 172, 202, 0.15);
+    color: #3AACCA;
+  }
+
+  /* Input base — for light mode */
+  .input-light {
+    @apply bg-sky-50 border border-surface-lighter text-navy-800 placeholder-slate-400
+           focus:outline-none focus:border-brand-400 focus:bg-white transition-all;
+  }
+}
