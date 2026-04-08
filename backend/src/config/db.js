@@ -1,17 +1,23 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+// Required for DigitalOcean managed PostgreSQL SSL
+if (process.env.DB_SSL === 'true') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
+
 const schema = process.env.DB_SCHEMA || 'fincopilot';
 
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'grayphite',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'zaid',
-  max: 20,
+  database: process.env.DB_NAME || 'defaultdb',
+  user: process.env.DB_USER || 'doadmin',
+  password: process.env.DB_PASSWORD,
+  max: 2,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 10000,
+  ssl: process.env.DB_SSL === 'true' ? true : false,
 });
 
 // Set search_path to our schema on every new connection
